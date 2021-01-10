@@ -78,7 +78,7 @@ public class EntityReader {
             String name = scanner.next();
             Rank rank = Rank.resolveRankById(scanner.nextInt());
             return CrewMemberFactory.getInstance().create(name, role, rank);
-        }  catch (InputMismatchException | UnknownEntityException e) {
+        } catch (InputMismatchException | UnknownEntityException e) {
             throw new InvalidStateException("CrewMember input mismatch");
         }
     }

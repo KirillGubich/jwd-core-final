@@ -59,13 +59,13 @@ public class NassaContext implements ApplicationContext {
     public <T extends BaseEntity> Collection<T> retrieveBaseEntityList(Class<T> tClass) {
         Collection<T> entityList = new ArrayList<>();
         if (tClass == CrewMember.class) {
-            entityList = (ArrayList<T>) crewMembers;
+            entityList = (Collection<T>) crewMembers;
         }
         if (tClass == Spaceship.class) {
-            entityList = (ArrayList<T>) spaceships;
+            entityList = (Collection<T>) spaceships;
         }
         if (tClass == FlightMission.class) {
-            entityList = (ArrayList<T>) flightMissions;
+            entityList = (Collection<T>) flightMissions;
         }
         return entityList;
     }
@@ -144,11 +144,14 @@ public class NassaContext implements ApplicationContext {
         List<CrewMember> crewMembers = new ArrayList<>();
         int crewMembersNeed = 0;
         Map<Role, Short> crew = spaceship.getCrew();
+        CrewService crewService = CrewMemberService.getInstance();
         for (Role role : crew.keySet()) {
             for (int i = 0; i < crew.get(role); i++) {
                 crewMembersNeed++;
-                CrewMemberCriteria criteria = CrewMemberCriteria.builder().withRole(role).build();
-                CrewService crewService = CrewMemberService.getInstance();
+                CrewMemberCriteria criteria = CrewMemberCriteria.builder()
+                        .withRole(role)
+                        .readyForNextMissions(true)
+                        .build();
                 Optional<CrewMember> crewMember = crewService.findCrewMemberByCriteria(criteria);
                 if (crewMember.isPresent()) {
                     crewService.assignCrewMemberOnMission(crewMember.get());

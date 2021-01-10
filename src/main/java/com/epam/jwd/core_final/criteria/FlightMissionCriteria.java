@@ -124,10 +124,10 @@ public class FlightMissionCriteria extends Criteria<FlightMission> {
         private List<CrewMember> assignedCrew;
         private MissionResult missionResult;
 
-       public Builder withStartDate(LocalDate startDate) {
-           this.startDate = startDate;
-           return this;
-       }
+        public Builder withStartDate(LocalDate startDate) {
+            this.startDate = startDate;
+            return this;
+        }
 
         public Builder withStartDateLaterThan(LocalDate earliestStartDate) {
             this.earliestStartDate = earliestStartDate;
@@ -155,8 +155,8 @@ public class FlightMissionCriteria extends Criteria<FlightMission> {
         }
 
         public Builder withDistance(Long distance) {
-           this.distance = distance;
-           return this;
+            this.distance = distance;
+            return this;
         }
 
         public Builder withDistanceGreaterThan(Long minDistance) {
@@ -180,12 +180,12 @@ public class FlightMissionCriteria extends Criteria<FlightMission> {
         }
 
         public Builder withMissionResult(MissionResult missionResult) {
-           this.missionResult = missionResult;
-           return this;
+            this.missionResult = missionResult;
+            return this;
         }
 
         public FlightMissionCriteria build() {
-           return new FlightMissionCriteria(this);
+            return new FlightMissionCriteria(this);
         }
     }
 

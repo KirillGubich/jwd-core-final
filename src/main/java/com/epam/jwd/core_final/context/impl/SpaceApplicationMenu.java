@@ -101,7 +101,6 @@ public class SpaceApplicationMenu implements ApplicationMenu {
             default:
                 System.out.printf("%s \n\n", "Unknown command. Please try again");
         }
-
         return applicationStatus;
     }
 
