@@ -34,5 +34,9 @@ public class FlightMissionFactoryTest {
         Mockito.when(idDispenser.getNextId()).thenReturn(1L);
         FlightMission flightMission = flightMissionFactory.create(name, start, end, distance);
         assertEquals(FlightMission.class, flightMission.getClass());
+        assertEquals(name, flightMission.getName());
+        assertEquals(start, flightMission.getStartDate());
+        assertEquals(end, flightMission.getEndDate());
+        assertEquals(distance, flightMission.getDistance());
     }
 }

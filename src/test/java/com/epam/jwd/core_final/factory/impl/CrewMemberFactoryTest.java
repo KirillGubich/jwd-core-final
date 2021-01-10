@@ -33,5 +33,8 @@ public class CrewMemberFactoryTest {
         Mockito.when(idDispenser.getNextId()).thenReturn(1L);
         CrewMember crewMember = crewMemberFactory.create(name, role, rank);
         assertEquals(CrewMember.class, crewMember.getClass());
+        assertEquals(name, crewMember.getName());
+        assertEquals(role, crewMember.getRole());
+        assertEquals(rank, crewMember.getRank());
     }
 }

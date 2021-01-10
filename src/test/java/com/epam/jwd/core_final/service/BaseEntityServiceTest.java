@@ -16,7 +16,7 @@ public class BaseEntityServiceTest {
     private static CrewMember crewMember;
 
     @BeforeClass
-    public static void beforeClass() throws Exception {
+    public static void beforeClass() {
         String name = "Test_Name";
         Role role = Role.MISSION_SPECIALIST;
         Rank rank = Rank.TRAINEE;

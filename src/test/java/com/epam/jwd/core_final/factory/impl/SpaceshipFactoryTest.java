@@ -39,5 +39,8 @@ public class SpaceshipFactoryTest {
         Mockito.when(idDispenser.getNextId()).thenReturn(1L);
         Spaceship spaceship = spaceshipFactory.create(name, crew, distance);
         assertEquals(Spaceship.class, spaceship.getClass());
+        assertEquals(name, spaceship.getName());
+        assertEquals(crew, spaceship.getCrew());
+        assertEquals(distance, spaceship.getFlightDistance());
     }
 }
